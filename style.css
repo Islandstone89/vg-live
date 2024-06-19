@@ -1,0 +1,203 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+:is(ul, ol) {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: 'Inter';
+    src: url(assets/fonts/Inter-Regular.woff2) format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(assets/fonts/Inter-Medium.woff2) format("woff2");
+    font-weight: 500;
+}
+
+/* CUSTOM PROPERTIES */
+
+:root {
+    /* COLORS */
+
+    --clr-blue-100: #00197d;
+    --clr-blue-200: #000d40;
+    --clr-light: #ebeffc;
+
+    /* TYPOGRAPHY */
+
+    --ff-primary: 'Inter', sans-serif;
+    --fs-small: .75rem;
+    --fs-large: 1.25rem;
+}
+
+.flow {
+    --flow-space: 1rem;
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space);
+}
+
+
+.component:has(.arrow[aria-expanded="true"]) {
+  .arrow-icon {
+    transform: scaleY(-1);
+    transition: .2s ease;
+  }
+  .content {
+    display: block;
+  }
+}
+
+.component:has(.arrow[aria-expanded="false"]) {
+  .content {
+    display: none;
+  }
+}
+
+
+
+
+body {
+    padding: 4rem 2rem; 
+    background-color: var(--clr-blue-200);
+    color: var(--clr-light);
+    font-family: var(--ff-primary);
+}
+
+.main {
+    max-width: 30rem;
+    margin-inline: auto;
+}
+
+.top {
+    padding-inline: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.main-heading {
+    font-size: var(--fs-large);
+}
+
+.arrow {
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.match {
+    --flow-space: .5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--clr-blue-100);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.away-team {
+    --flow-space: .5rem;
+}
+
+.right {
+    font-size: var(--fs-small);
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    align-items: center;
+}
+
+.kickoff {
+    background-color: var(--clr-blue-200);
+    padding: .5rem;
+    border-radius: 12px;
+}
+
+.channel {
+    --flow-space: .5rem;
+}
+
